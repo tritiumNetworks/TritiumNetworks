@@ -1,0 +1,33 @@
+{
+  "name": "trinet-web",
+  "version": "1.0.0",
+  "description": "website for Tritium Networks",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tritiumNetworks/TritiumNetworks.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tritiumNetworks/TritiumNetworks/issues"
+  },
+  "homepage": "https://github.com/tritiumNetworks/TritiumNetworks#readme",
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "cors": "^2.8.5",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1"
+  }
+}

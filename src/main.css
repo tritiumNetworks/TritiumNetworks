@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css?family=Jua&display=swap");
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Jua', sans-serif;
+  overflow: hidden;
+}
+
+.title {
+  display: flex;
+  font-size: 5em;
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  z-index: 2;
+}
+
+.title-letter {
+  display: inline-block;
+}
+
+.title-peoples {
+  font-size: 0px;
+  opacity: 0%;
+}
+
+/*# sourceMappingURL=main.css.map */
