@@ -13,16 +13,53 @@ body {
   position: absolute;
   top: 40%;
   left: 10%;
-  z-index: 2;
+  z-index: 50;
 }
 
 .title-letter {
   display: inline-block;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.30);
 }
 
 .title-peoples {
   font-size: 0px;
   opacity: 0%;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.30);
 }
 
+.btn {
+  -webkit-box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.30); 
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.30);
+}
+
+.btn-discord {
+  position: absolute;
+  z-index: 40;
+  top: 50%;
+  right: 100%;
+  background-color: #7289DA;
+  color: white;
+}
+
+.btn-github {
+  position: absolute;
+  z-index: 40;
+  top: 50%;
+  left: -100%;
+  background-color: #000000;
+  color: white;
+}
+
+.btn-detail {
+  position: absolute;
+  z-index: 40;
+  top: 50%;
+  left: -100%;
+  background-color: #6bedd4;
+  color: white;
+}
+
+.detail {
+  opacity: 0%;
+}
 /*# sourceMappingURL=main.css.map */
