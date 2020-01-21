@@ -1,5 +1,5 @@
 function router (app, render) {
-  app.get('/', (req, res) => render(req, res, 'name_seal'))
+  app.get('/', (req, res) => render(req, res, 'index.ejs'))
 }
 
 module.exports = router
