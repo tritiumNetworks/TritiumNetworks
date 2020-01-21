@@ -1,46 +1,19 @@
-const PORT = 3004 || process.env.triNet
-
-const fs = require('fs')
-const ejs = require('ejs')
+const { readFileSync } = require('fs')
 const cors = require('cors')
 const path = require('path').resolve()
 const chalk = require('chalk')
+const http = require('http')
+const https = require('https')
 const express = require('express')
-
-const layout = {}
-fs.readdir(path + '/layout/', (err, files) => {
-  if (err) console.log(chalk.red(err))
-  else {
-    files.forEach((file) => {
-      layout[file.replace('.ejs', '')] = () => {
-        let returnStr
-        ejs.renderFile(path + '/layout/' + file, (err, str) => {
-          if (err) {
-            console.log(chalk.red(err))
-          } else returnStr = str
-        })
-        return returnStr
-      }
-    })
-  }
-})
+const siteRouter = require(path + '/router/siteRouter')
 
 const app = express()
+const ssl = { cert: readFileSync(path + '/cert/trinets-cert.pem'), key: readFileSync(path + '/cert/trinets-key.pem') }
+
 app.use(cors())
+app.use('/src', express.static(path + '/src'))
 
-app.get('/', (_req, res) => res.redirect('/triNet'))
+siteRouter(app)
 
-app.get('/.js', (_req, res) => res.sendFile(path + '/src/main.js'))
-app.get('/.css', (_req, res) => res.sendFile(path + '/src/main.css'))
-
-app.get('/triNet', (_req, res) =>
-  ejs.renderFile(path + '/view/triNet.ejs', { layout }, (err, str) => {
-    if (err) {
-      console.log(chalk.red(err))
-    } else res.send(str)
-  })
-)
-
-app.listen(PORT, () => {
-  console.log(chalk.green('Tritium Networks Webpage is now on http://localhost:') + chalk.green.bold(PORT))
-})
+http.createServer(app).listen(80, () => { console.log(chalk.green('Non-SSL Server is now on http://localhost')) })
+https.createServer(ssl, app).listen(443, () => { console.log(chalk.green('SSL Server is now on https://localhost')) })
