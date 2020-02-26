@@ -1,6 +1,7 @@
 const path = require('path').resolve()
 const { render, renderFile } = require('ejs')
 const { existsSync, readFileSync } = require('fs')
+const factMaker = require('./maker')
 
 function layout (point, options) {
   point = [path, 'layouts', point].join('/')
@@ -9,7 +10,9 @@ function layout (point, options) {
 }
 
 function func (req, res, point, data) {
-  let options = { req, layout }
+  const facts = factMaker()
+
+  let options = { req, layout, facts }
   if (typeof data === 'object') options = { req, ...data, layout }
   options = { ...options, options }
 
