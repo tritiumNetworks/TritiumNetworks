@@ -8,6 +8,22 @@ html, body {
   background-color: black;
 }
 
+input { 
+  text-rendering: auto;
+  color: unset;
+  text-align: center;
+  background-color: transparent;
+  cursor: text;
+  margin: 0em;
+  font: 400 13.3333px 'Noto Serif';
+  padding: 0px;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
 .cst-container {
   padding: 5px;
 }
@@ -18,7 +34,17 @@ html, body {
   font-family: 'Noto Serif';
 }
 
-.name_seal {
+.here {
+  text-decoration: none;
+  color: #b4e9de;
+}
+
+.here:hover {
+  text-decoration: none;
+  color: #6bedd4;
+}
+
+.submission {
   color: white;
   font-family: serif;
 }

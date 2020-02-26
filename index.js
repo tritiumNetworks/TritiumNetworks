@@ -5,7 +5,9 @@ const chalk = require('chalk')
 const http = require('http')
 const https = require('https')
 const express = require('express')
+const maker = require(path + '/functions/maker')
 const renderer = require(path + '/functions/render')
+const apiRouter = require(path + '/router/apiRouter')
 const siteRouter = require(path + '/router/siteRouter')
 
 const app = express()
@@ -14,7 +16,8 @@ const ssl = { cert: readFileSync(path + '/cert/trinets-cert.pem'), key: readFile
 app.use(cors())
 app.use('/src', express.static(path + '/src'))
 
-siteRouter(app, renderer)
+apiRouter(app, maker)
+siteRouter(app, renderer, maker)
 
 http.createServer(app).listen(80, () => { console.log(chalk.green('Non-SSL Server is now on http://localhost:80')) })
 https.createServer(ssl, app).listen(443, () => { console.log(chalk.green('SSL Server is now on https://localhost:433')) })
