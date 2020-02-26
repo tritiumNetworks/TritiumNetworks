@@ -1,0 +1,14 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.cst-container {
+  padding: 5px;
+}
+
+.name_seal {
+  font-family: serif;
+}
