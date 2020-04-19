@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/main/src/css/main.css">
+  <link rel="stylesheet" href="/main/src/css/scroll.css">
+  <link rel="stylesheet" href="/main/src/css/sector.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&family=Jua&family=Roboto:wght@500&family=Baloo+Paaji+2:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+  <script src="https://kit.fontawesome.com/1213a7cbad.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+  <script src="https://raw.githubusercontent.com/github/fetch/master/fetch.js"></script>
+  <title>Tritium Networks</title>
+</head>
+<body>
+  <div class="bg">
+    <img class="logo animated pulse" src="/main/src/img/TritiumLogo.png">
+    <div class="title">Tritium Networks</div>
+    <input type="text" class="subtitle" autocomplete="off" spellcheck="false">
+    <div class="split"></div>
+    <div class="buttons">
+      <a class="button github" href="https://github.com/tritiumNetworks"><i class="fab fa-github"></i> Github</a>
+      <a class="button email" href="mailto:pmhstudio.pmh@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+    </div>
+    <div class="buttons">
+      <a class="button discord" href="https://discord.gg/FaqbBAT"><i class="fab fa-discord"></i> Discord</a>
+    </div>
+    <div class="split-r"></div>
+    <div class="scroll">
+      <div class="chevron"></div>
+      <div class="chevron"></div>
+      <div class="chevron"></div>
+    </div>
+  </div>
+
+  <div class="solid">
+    <div class="sect">
+      <div class="sect-title">Repos.</div>
+      <div class="sect-split"></div>
+
+      <ul class="sect-projects">Loading...</ul>
+    </div>
+  </div>
+
+  <div class="sect-template">
+    <li class="sect-card sect-card-lang-{lang}" onclick="window.open('{url}')">
+      <div class="sect-card-name">{name}</div>
+      <div class="sect-card-desciption">{desc}</div>
+      <div class="sect-card-infos">{infos}</div>
+    </li>
+  </div>
+  <script src="/main/src/js/main.js"></script>
+</body>
+</html>

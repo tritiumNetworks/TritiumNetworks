@@ -1,0 +1,71 @@
+.sect {
+  padding: 30px;
+  color: white;
+}
+
+.sect-title {
+  font-size: 2rem;
+}
+
+.sect-split {
+  width: 25vw;
+  height: 5px;
+  background-color: white;
+  margin: 5px -5px;
+}
+
+.sect-projects {
+  list-style-type: none;
+}
+
+.sect-template {
+  display: none;
+}
+
+.sect-card {
+  display: block;
+  float: left;
+  padding: 10px;
+  background-color: white;
+  color: black;
+  margin: 5px 5px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  transition: box-shadow .2s ease-in-out;
+}
+
+.sect-card:hover {
+  box-shadow: 0px 0px 5px 2px #ffffffbf;
+}
+
+.sect-card-lang-JavaScript:hover {
+  background-color: #f0da4f;
+}
+
+.sect-card-lang-CSS:hover {
+  background-color: #2965f1;
+}
+
+.sect-card-lang-HTML:hover {
+  background-color: #F16529;
+}
+
+.sect-card-lang-Java:hover {
+  background-color: #ED8B00;
+}
+
+.sect-card-lang-Go:hover {
+  background-color: #00ADD8;
+}
+
+.sect-card-name {
+  font-family: 'Baloo Paaji 2', cursive;
+  font-size: 20px;
+}
+
+.sect-card-desciption {
+  font-family: 'Nanum Myeongjo', serif;
+  color: gray;
+}

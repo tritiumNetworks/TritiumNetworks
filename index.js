@@ -1,22 +1,28 @@
-module.exports = { _root: '/main', _socket: false, _cors: true, _parser: [], ready }
+module.exports = { _root: '/main', _socket: true, _cors: true, _parser: [], ready, static: '/src' }
 
-const { readFileSync, writeFileSync } = require('fs')
 const path = require('path').resolve()
-const { renderFile } = require('ejs')
-let count = Number(readFileSync(path + '/router/main/data/data').toString('utf-8'))
+const { readFileSync } = require('fs')
 
-function ready (app) {
+/**
+ * @param {import('../../class/Rapp')} app 
+ * @param {{ ws: import('socket.io').Server, wss: import('socket.io').Server }} sockets 
+ */
+function ready (app, sockets) {
   console.log('main is loaded')
-  app.get('/', (_req, res) => {
-    count++
-    renderFile(path + '/router/main/page/index.ejs', { count }, (err, str) => {
-      if (err) console.log(err)
-      res.send(str)
-    })
-    if (count === 16777215) console.log(res.ip)
+  let subtitle = 'Open-Source Software Dev Group'
+  app.get('/', (_, res) => res.send(readFileSync(path + '/router/main/page/index.html', { encoding: 'utf-8' })))
+  sockets.ws.on('connect', (s) => {
+    s.emit('main:subtitle', subtitle)
+    s.on('main:subtitle', (sub) => { subtitle = sub; sockets.ws.emit('main:subtitle', subtitle); sockets.wss.emit('main:subtitle', subtitle) })
+  })
+  sockets.wss.on('connect', (s) => {
+    s.emit('main:subtitle', subtitle)
+    s.on('main:subtitle', (sub) => { subtitle = sub; sockets.ws.emit('main:subtitle', subtitle); sockets.wss.emit('main:subtitle', subtitle) })
+    s.on('main:subtitle', (sub) => { subtitle = sub; sockets.ws.emit('main:subtitle', subtitle); sockets.wss.emit('main:subtitle', subtitle) })
+  })
+
+  sockets.wss.on('connect', (s) => {
+    s.emit('main:subtitle', subtitle)
+    s.on('main:subtitle', (sub) => { subtitle = sub; sockets.ws.emit('main:subtitle', subtitle); sockets.wss.emit('main:subtitle', subtitle) })
   })
 }
-
-setInterval(() => {
-  writeFileSync(path + '/router/main/data/data', count)
-}, 10000)
