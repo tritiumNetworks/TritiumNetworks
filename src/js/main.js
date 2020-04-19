@@ -15,7 +15,6 @@ document.getElementsByClassName('subtitle')[0].addEventListener('input', () => {
 document.getElementsByClassName('logo')[0].addEventListener('click', () => {
   lg--
   document.getElementsByClassName('logo')[0].style.width = lg + 'rem'
-  document.getElementsByTagName('body')[0].style.overflow = 'hidden'
 
   if (lg < 1) {
     lg = 20
